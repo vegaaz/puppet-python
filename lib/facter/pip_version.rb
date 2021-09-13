@@ -20,6 +20,9 @@ Facter.add('pip2_version') do
 end
 
 Facter.add('pip3_version') do
+  confine :kernel do | value |
+    value !~ /Darwin/
+  end
   setcode do
     get_pip_version 'pip3'
   end
