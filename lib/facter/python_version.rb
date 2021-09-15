@@ -26,7 +26,7 @@ end
 
 Facter.add('python3_version') do
   confine :kernel do | value |
-    value !~ /Darwin/
+    value !~ /(Darwin|darwin)/
   end
   setcode do
     get_python_version 'python3'

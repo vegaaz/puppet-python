@@ -21,7 +21,7 @@ end
 
 Facter.add('pip3_version') do
   confine :kernel do | value |
-    value !~ /Darwin/
+    value !~ /(Darwin|darwin)/
   end
   setcode do
     get_pip_version 'pip3'
